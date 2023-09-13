@@ -1,0 +1,46 @@
+/* styles.css */
+
+.postListMainDiv {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.postListRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.postListInnerDiv {
+    flex-basis: calc(33.33% - 10px);
+    /* Each blog post takes up one-third of the row with a 10px margin in between */
+    box-sizing: border-box;
+    margin-right: 10px;
+}
+
+.postListInnerDiv:last-child {
+    margin-right: 0;
+}
+
+.postListInnerDiv a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    text-align: center;
+}
+
+.postListInnerDiv img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+
+/* Add more styling as needed */
