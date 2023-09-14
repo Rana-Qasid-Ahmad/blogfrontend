@@ -5,7 +5,8 @@ import './styles.css';
 
 function PostList() {
   const [data, setData] = useState([]);
-  const apiURL = 'https://strapi-ftb9.onrender.com';
+  // const apiURL = 'https://strapi-ftb9.onrender.com';
+  const apiURL = 'http://localhost:1337';
 
   useEffect(() => {
     async function fetchData() {
@@ -25,7 +26,13 @@ function PostList() {
     return (
       <div className="postListInnerDiv" key={item.id}>
         <Link to={`/blog/${item.id}`}>
-          <img src={`${item.attributes.CoverImg.data.attributes.url}`} alt={item.attributes.Title} />
+
+          {/* for online server */}
+          {/* <img src={`${item.attributes.CoverImg.data.attributes.url}`} alt={item.attributes.Title} /> */}
+          
+          {/* For local Host */}
+          <img src={`${apiURL}${item.attributes.CoverImg.data.attributes.url}`} alt={item.attributes.Title} />
+          
           {item.attributes.Title}
         </Link>
       </div>
@@ -37,7 +44,7 @@ function PostList() {
     const rows = [];
     for (let i = 0; i < data.length; i += 3) {
       const rowItems = data.slice(i, i + 3);
-      console.log(rowItems)
+      // console.log(rowItems)
       const row = (
         <div className="postListRow" key={`row-${i}`}>
           {rowItems.map((item) => renderBlogPost(item))}

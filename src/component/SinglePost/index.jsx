@@ -9,7 +9,9 @@ function SinglePost() {
   const { postId } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
-  const apiURL = `https://strapi-ftb9.onrender.com`
+  // const apiURL = `https://strapi-ftb9.onrender.com`
+  const apiURL = 'http://localhost:1337';
+
 
   useEffect(() => {
     async function fetchPostData() {
@@ -45,7 +47,11 @@ function SinglePost() {
      
             
             <div className="postImg">
-            <img src={`${post.attributes.CoverImg.data.attributes.url}`} alt="Sample Image"/>
+              {/* for live server */}
+            {/* <img src={`${post.attributes.CoverImg.data.attributes.url}`} alt="Sample Image"/> */}
+            
+            {/* for local server */}
+            <img src={`${apiURL}${post.attributes.CoverImg.data.attributes.url}`} alt="Sample Image"/>
             </div>
 
             <div className='Content'>
